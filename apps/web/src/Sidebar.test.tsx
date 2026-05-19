@@ -22,6 +22,7 @@ const mockGraph: Graph = {
 };
 
 const mockArtists: ArtistsDoc = {
+  generatedAt: "2024-01-01T00:00:00Z",
   artists: [],
   byTag: { rock: [] },
 };
