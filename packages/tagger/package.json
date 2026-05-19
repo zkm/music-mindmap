@@ -1,0 +1,31 @@
+{
+  "name": "@mm/tagger",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/cli.ts",
+  "exports": {
+    ".": "./src/cli.ts"
+  },
+  "scripts": {
+    "ingest": "tsx src/cli.ts ingest",
+    "build:graph": "tsx src/cli.ts build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo 'no lint'",
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@mm/shared-types": "workspace:*",
+    "@mm/subsonic-client": "workspace:*",
+    "dotenv": "^17.4.2",
+    "p-limit": "^7.3.0",
+    "undici": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.6"
+  }
+}

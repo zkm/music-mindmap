@@ -1,5 +1,29 @@
 {
   "name": "music-mindmap",
-  "packageManager": "yarn@4.14.1",
-  "private": true
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "yarn@4.10.3",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach -Apt --include '@mm/*' run build",
+    "ping": "yarn workspace @mm/subsonic-client run ping",
+    "ingest": "yarn workspace @mm/tagger run ingest",
+    "ingest:refresh": "yarn workspace @mm/tagger run ingest -- --refresh",
+    "server": "yarn workspace @mm/server run dev",
+    "web": "yarn workspace @mm/web run dev",
+    "dev": "concurrently -n server,web -c blue,magenta \"yarn server\" \"yarn web\"",
+    "start": "yarn workspace @mm/server run start",
+    "typecheck": "yarn workspaces foreach -Ap --include '@mm/*' run typecheck",
+    "lint": "yarn workspaces foreach -Ap --include '@mm/*' run lint",
+    "test": "yarn workspaces foreach -Ap --include '@mm/*' run test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.6"
+  }
 }
