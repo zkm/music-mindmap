@@ -63,6 +63,21 @@ MB_USER_AGENT=music-mindmap/0.1 (you@example.com)
 | `yarn typecheck`      | All workspaces                                                                                                                   |
 | `yarn test`           | Vitest across all workspaces                                                                                                     |
 
+## GitHub Pages / static demo mode
+
+GitHub Pages cannot serve the backend API (`/api/graph`, `/api/artists`, `/media/*`).
+For static hosting, the web app supports bundled mock data.
+
+Use this when building the web app for Pages:
+
+```bash
+VITE_USE_MOCK=true VITE_BASE_URL=/music-mindmap/ yarn workspace @mm/web build
+```
+
+- `VITE_USE_MOCK=true` forces local mock graph/artist data.
+- `VITE_BASE_URL=/music-mindmap/` sets the asset base path for a project page.
+- If `VITE_USE_MOCK` is not set, the app still auto-falls back to mock data when API calls fail.
+
 ## How the mind map is built
 
 1. **Ingest** (`@mm/tagger ingest`): for every artist in the library, fetch

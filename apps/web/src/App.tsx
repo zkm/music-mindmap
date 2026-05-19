@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { ArtistsDoc, Graph } from "@mm/shared-types";
 import { GraphView } from "./GraphView.tsx";
 import { Sidebar } from "./Sidebar.tsx";
+import { mockArtists, mockGraph } from "./mockData.ts";
 
 interface AppState {
   graph?: Graph;
@@ -21,7 +22,14 @@ export function App() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
+      const useMock = import.meta.env.VITE_USE_MOCK === "true";
       try {
+        if (useMock) {
+          if (cancelled) return;
+          setState((s) => ({ ...s, graph: mockGraph, artists: mockArtists, loading: false }));
+          return;
+        }
+
         const [g, a] = await Promise.all([
           fetch("/api/graph").then((r) => {
             if (!r.ok) throw new Error(`/api/graph → ${r.status}`);
@@ -36,7 +44,15 @@ export function App() {
         setState((s) => ({ ...s, graph: g, artists: a, loading: false }));
       } catch (err) {
         if (cancelled) return;
-        setState((s) => ({ ...s, loading: false, error: String(err) }));
+        // Static hosts such as GitHub Pages do not serve /api. Fall back to
+        // bundled mock data so the page remains usable for demos.
+        setState((s) => ({
+          ...s,
+          graph: mockGraph,
+          artists: mockArtists,
+          loading: false,
+          error: `Using bundled mock data (${String(err)})`,
+        }));
       }
     })();
     return () => {
