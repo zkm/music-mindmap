@@ -9,24 +9,24 @@ import { SubsonicClient } from "./client.js";
  * if required vars are missing — the caller decides whether to throw.
  */
 export function clientFromEnv(env: NodeJS.ProcessEnv = process.env): {
-  client?: SubsonicClient;
-  error?: string;
+    client?: SubsonicClient;
+    error?: string;
 } {
-  const url = env.NAVIDROME_URL?.trim();
-  const user = env.NAVIDROME_USER?.trim();
-  const password = env.NAVIDROME_PASSWORD;
-  if (!url || !user || !password) {
+    const url = env.NAVIDROME_URL?.trim();
+    const user = env.NAVIDROME_USER?.trim();
+    const password = env.NAVIDROME_PASSWORD;
+    if (!url || !user || !password) {
+        return {
+            error: "Missing NAVIDROME_URL / NAVIDROME_USER / NAVIDROME_PASSWORD in environment",
+        };
+    }
     return {
-      error: "Missing NAVIDROME_URL / NAVIDROME_USER / NAVIDROME_PASSWORD in environment",
+        client: new SubsonicClient({
+            url,
+            user,
+            password,
+            client: env.NAVIDROME_CLIENT?.trim() || "music-mindmap",
+            version: "1.16.1",
+        }),
     };
-  }
-  return {
-    client: new SubsonicClient({
-      url,
-      user,
-      password,
-      client: env.NAVIDROME_CLIENT?.trim() || "music-mindmap",
-      version: "1.16.1",
-    }),
-  };
 }

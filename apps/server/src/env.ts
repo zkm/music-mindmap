@@ -6,14 +6,14 @@ const here = dirname(fileURLToPath(import.meta.url));
 
 /** Load .env from the workspace root regardless of which package cwd we're in. */
 export function loadWorkspaceEnv(): void {
-  // apps/server/src → ../../../ = workspace root
-  loadEnv({ path: resolve(here, "../../../.env") });
+    // apps/server/src → ../../../ = workspace root
+    loadEnv({ path: resolve(here, "../../../.env") });
 }
 
 export function workspaceRoot(): string {
-  return resolve(here, "../../..");
+    return resolve(here, "../../..");
 }
 
 export function dataDir(): string {
-  return resolve(workspaceRoot(), "data");
+    return resolve(workspaceRoot(), "data");
 }

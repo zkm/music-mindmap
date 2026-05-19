@@ -1,30 +1,30 @@
 name: CI
 
 on:
-  push:
-    branches: [master]
-  pull_request:
+    push:
+        branches: [master]
+    pull_request:
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    ci:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22"
 
-      - run: corepack enable
+            - run: corepack enable
 
-      - name: Install dependencies
-        run: yarn install --immutable
+            - name: Install dependencies
+              run: yarn install --immutable
 
-      - name: Type-check
-        run: yarn typecheck
+            - name: Type-check
+              run: yarn typecheck
 
-      - name: Tests
-        run: yarn test
+            - name: Tests
+              run: yarn test
 
-      - name: Prettier
-        run: yarn format:check
+            - name: Prettier
+              run: yarn format:check

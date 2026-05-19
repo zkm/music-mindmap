@@ -1,31 +1,31 @@
 {
-  "name": "@mm/server",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "main": "./src/server.ts",
-  "exports": {
-    ".": "./src/server.ts"
-  },
-  "scripts": {
-    "dev": "tsx watch src/server.ts",
-    "start": "tsx src/server.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "prettier --check 'src/**/*.ts'",
-    "test": "vitest run"
-  },
-  "dependencies": {
-    "@fastify/static": "^9.1.3",
-    "@mm/shared-types": "workspace:*",
-    "@mm/subsonic-client": "workspace:*",
-    "dotenv": "^17.4.2",
-    "fastify": "^5.1.0",
-    "undici": "^8.3.0"
-  },
-  "devDependencies": {
-    "@types/node": "^25.9.0",
-    "tsx": "^4.19.2",
-    "typescript": "~6.0.3",
-    "vitest": "^4.1.6"
-  }
+    "name": "@mm/server",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "main": "./src/server.ts",
+    "exports": {
+        ".": "./src/server.ts"
+    },
+    "scripts": {
+        "dev": "tsx watch src/server.ts",
+        "start": "tsx src/server.ts",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "lint": "prettier --check 'src/**/*.ts'",
+        "test": "vitest run"
+    },
+    "dependencies": {
+        "@fastify/static": "^9.1.3",
+        "@mm/shared-types": "workspace:*",
+        "@mm/subsonic-client": "workspace:*",
+        "dotenv": "^17.4.2",
+        "fastify": "^5.1.0",
+        "undici": "^8.3.0"
+    },
+    "devDependencies": {
+        "@types/node": "^25.9.0",
+        "tsx": "^4.19.2",
+        "typescript": "~6.0.3",
+        "vitest": "^4.1.6"
+    }
 }
