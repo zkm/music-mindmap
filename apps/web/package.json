@@ -8,8 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo 'no lint'",
-    "test": "echo 'no tests'"
+    "lint": "prettier --check 'src/**/*.{ts,tsx}'",
+    "test": "vitest run"
   },
   "dependencies": {
     "@mm/shared-types": "workspace:*",
@@ -19,11 +19,15 @@
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
     "@types/cytoscape": "^3.21.6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
+    "happy-dom": "^15.11.7",
     "typescript": "~6.0.3",
-    "vite": "^8.0.13"
+    "vite": "^8.0.13",
+    "vitest": "^4.1.6"
   }
 }

@@ -53,18 +53,12 @@ describe("buildGraph", () => {
   });
 
   it("weight grows with play count", async () => {
-    const low = await buildGraph(
-      [
-        artist("A", ["Rock"], 2000, 1),
-        artist("B", ["Rock"], 2000, 1),
-      ],
-      { minNodeArtists: 1, minEdgeWeight: 1 },
-    );
+    const low = await buildGraph([artist("A", ["Rock"], 2000, 1), artist("B", ["Rock"], 2000, 1)], {
+      minNodeArtists: 1,
+      minEdgeWeight: 1,
+    });
     const high = await buildGraph(
-      [
-        artist("A", ["Rock"], 2000, 1000),
-        artist("B", ["Rock"], 2000, 1000),
-      ],
+      [artist("A", ["Rock"], 2000, 1000), artist("B", ["Rock"], 2000, 1000)],
       { minNodeArtists: 1, minEdgeWeight: 1 },
     );
     const lw = low.graph.nodes.find((n) => n.id === "rock")!.weight;

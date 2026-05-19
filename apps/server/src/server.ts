@@ -129,23 +129,18 @@ fastify.get<{ Params: { id: string }; Querystring: { size?: string } }>(
   },
 );
 
-fastify.get<{ Params: { id: string } }>(
-  "/media/stream/:id",
-  async (req, reply) => {
-    const url = subsonic.streamUrl(req.params.id, {
-      format: PREVIEW_FORMAT,
-      maxBitRate: PREVIEW_BITRATE,
-    });
-    return proxyToNavidrome(url, reply, req.headers as Record<string, string | undefined>);
-  },
-);
+fastify.get<{ Params: { id: string } }>("/media/stream/:id", async (req, reply) => {
+  const url = subsonic.streamUrl(req.params.id, {
+    format: PREVIEW_FORMAT,
+    maxBitRate: PREVIEW_BITRATE,
+  });
+  return proxyToNavidrome(url, reply, req.headers as Record<string, string | undefined>);
+});
 
 fastify.get<{ Params: { id: string } }>("/api/navidrome-url/:id", async (req) => {
   const base = process.env.NAVIDROME_URL?.replace(/\/+$/, "");
   return {
-    url: base
-      ? `${base}/app/#/artist/${encodeURIComponent(req.params.id)}/show`
-      : null,
+    url: base ? `${base}/app/#/artist/${encodeURIComponent(req.params.id)}/show` : null,
   };
 });
 

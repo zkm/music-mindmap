@@ -58,9 +58,7 @@ export function App() {
         <span className="spacer" />
         <button
           aria-pressed={state.weightByPlays}
-          onClick={() =>
-            setState((s) => ({ ...s, weightByPlays: !s.weightByPlays }))
-          }
+          onClick={() => setState((s) => ({ ...s, weightByPlays: !s.weightByPlays }))}
           title="Toggle: scale tag nodes by your play counts"
         >
           ♪ Weight by plays
@@ -80,11 +78,7 @@ export function App() {
       </main>
 
       <aside className="side">
-        <Sidebar
-          artists={state.artists}
-          graph={state.graph}
-          selectedTagId={state.selectedTagId}
-        />
+        <Sidebar artists={state.artists} graph={state.graph} selectedTagId={state.selectedTagId} />
       </aside>
     </div>
   );

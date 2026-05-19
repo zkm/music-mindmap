@@ -21,7 +21,9 @@ async function main(): Promise<void> {
 
   console.log(`Pinging ${process.env.NAVIDROME_URL} ...`);
   const pong = await client.ping();
-  console.log(`  ok — server ${pong.type ?? "?"} v${pong.serverVersion ?? "?"} (protocol ${pong.version})`);
+  console.log(
+    `  ok — server ${pong.type ?? "?"} v${pong.serverVersion ?? "?"} (protocol ${pong.version})`,
+  );
 
   console.log("Fetching artist list ...");
   const list = await client.getArtists();

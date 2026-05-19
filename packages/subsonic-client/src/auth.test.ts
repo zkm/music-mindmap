@@ -41,8 +41,6 @@ describe("authParams", () => {
 describe("endpoint", () => {
   it("strips trailing slashes", () => {
     expect(endpoint("http://x/", "ping")).toBe("http://x/rest/ping.view");
-    expect(endpoint("http://x///", "getArtists")).toBe(
-      "http://x/rest/getArtists.view",
-    );
+    expect(endpoint("http://x///", "getArtists")).toBe("http://x/rest/getArtists.view");
   });
 });

@@ -15,7 +15,9 @@ export interface SubsonicAuth {
  */
 export function authParams(auth: SubsonicAuth): URLSearchParams {
   const salt = randomBytes(8).toString("hex");
-  const token = createHash("md5").update(auth.password + salt).digest("hex");
+  const token = createHash("md5")
+    .update(auth.password + salt)
+    .digest("hex");
   return new URLSearchParams({
     u: auth.user,
     t: token,

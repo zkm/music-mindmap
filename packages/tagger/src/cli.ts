@@ -33,9 +33,7 @@ async function main(): Promise<void> {
     process.exit(2);
   }
 
-  console.log(
-    `Ingesting library (refresh=${refresh}${limit ? `, limit=${limit}` : ""}) ...`,
-  );
+  console.log(`Ingesting library (refresh=${refresh}${limit ? `, limit=${limit}` : ""}) ...`);
   const t0 = Date.now();
   const ing = await ingestAll({
     refresh,
@@ -67,10 +65,7 @@ async function main(): Promise<void> {
   const out = dataDir();
   await writeJson(resolve(out, "graph.json"), built.graph);
   await writeJson(resolve(out, "artists.json"), built.artistsDoc);
-  await writeJson(
-    resolve(out, "unmapped-tags.json"),
-    built.unmappedRawTags,
-  );
+  await writeJson(resolve(out, "unmapped-tags.json"), built.unmappedRawTags);
 
   // Top 20 unmapped tags for visibility into taxonomy gaps.
   const top = Object.entries(built.unmappedRawTags).slice(0, 20);

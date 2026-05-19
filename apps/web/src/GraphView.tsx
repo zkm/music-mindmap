@@ -30,12 +30,7 @@ interface GraphViewProps {
   onSelectTag(id: string | undefined): void;
 }
 
-export function GraphView({
-  graph,
-  weightByPlays,
-  selectedTagId,
-  onSelectTag,
-}: GraphViewProps) {
+export function GraphView({ graph, weightByPlays, selectedTagId, onSelectTag }: GraphViewProps) {
   const hostRef = useRef<HTMLDivElement | null>(null);
   const cyRef = useRef<Core | null>(null);
 

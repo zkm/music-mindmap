@@ -229,9 +229,7 @@ export async function buildGraph(
     });
   }
 
-  const taggedArtistCount = enriched.filter((a) =>
-    a.tags.some((t) => keptTagIds.has(t)),
-  ).length;
+  const taggedArtistCount = enriched.filter((a) => a.tags.some((t) => keptTagIds.has(t))).length;
 
   const graph: Graph = {
     nodes,
@@ -253,8 +251,6 @@ export async function buildGraph(
   return {
     graph,
     artistsDoc,
-    unmappedRawTags: Object.fromEntries(
-      [...unmapped.entries()].sort((a, b) => b[1] - a[1]),
-    ),
+    unmappedRawTags: Object.fromEntries([...unmapped.entries()].sort((a, b) => b[1] - a[1])),
   };
 }

@@ -21,10 +21,13 @@ export function mapTag(raw: string, artistName?: string): string | null {
     const decade = eraMatch[1]!;
     const candidate = `${decade}s`; // "90s", "00s", "10s", ...
     const normalized =
-      candidate === "00s" ? "2000s" :
-      candidate === "10s" ? "2010s" :
-      candidate === "20s" ? "2020s" :
-      candidate;
+      candidate === "00s"
+        ? "2000s"
+        : candidate === "10s"
+          ? "2010s"
+          : candidate === "20s"
+            ? "2020s"
+            : candidate;
     if (TAG_BY_ID[normalized]) return normalized;
   }
 
@@ -70,37 +73,37 @@ export function eraForYear(year: number | undefined): string | null {
  */
 const REGION_MAP: Record<string, string> = {
   "united states": "us",
-  "usa": "us",
-  "us": "us",
+  usa: "us",
+  us: "us",
   "u.s.": "us",
   "u.s.a.": "us",
   "united kingdom": "uk",
-  "uk": "uk",
-  "england": "uk",
-  "scotland": "uk",
-  "wales": "uk",
+  uk: "uk",
+  england: "uk",
+  scotland: "uk",
+  wales: "uk",
   "northern ireland": "uk",
   "great britain": "uk",
-  "ireland": "ireland",
-  "canada": "canada",
-  "australia": "australia",
-  "germany": "germany",
+  ireland: "ireland",
+  canada: "canada",
+  australia: "australia",
+  germany: "germany",
   "west germany": "germany",
   "east germany": "germany",
-  "france": "france",
-  "japan": "japan",
-  "mexico": "latin-america",
-  "brazil": "latin-america",
-  "argentina": "latin-america",
-  "colombia": "latin-america",
-  "cuba": "latin-america",
-  "chile": "latin-america",
-  "peru": "latin-america",
+  france: "france",
+  japan: "japan",
+  mexico: "latin-america",
+  brazil: "latin-america",
+  argentina: "latin-america",
+  colombia: "latin-america",
+  cuba: "latin-america",
+  chile: "latin-america",
+  peru: "latin-america",
   "south africa": "africa",
-  "nigeria": "africa",
-  "mali": "africa",
-  "senegal": "africa",
-  "ethiopia": "africa",
+  nigeria: "africa",
+  mali: "africa",
+  senegal: "africa",
+  ethiopia: "africa",
 };
 
 export function regionForArea(area: string | undefined | null): string | null {

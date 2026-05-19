@@ -19,7 +19,10 @@ export interface ClientOptions extends SubsonicAuth {
 }
 
 export class SubsonicError extends Error {
-  constructor(public readonly code: number, message: string) {
+  constructor(
+    public readonly code: number,
+    message: string,
+  ) {
     super(`Subsonic error ${code}: ${message}`);
   }
 }
@@ -76,10 +79,7 @@ export class SubsonicClient {
           const root = env["subsonic-response"];
           if (!root) throw new Error(`Malformed response on ${name}`);
           if (root.status !== "ok") {
-            throw new SubsonicError(
-              root.error?.code ?? -1,
-              root.error?.message ?? "unknown",
-            );
+            throw new SubsonicError(root.error?.code ?? -1, root.error?.message ?? "unknown");
           }
           return root as unknown as T;
         } catch (err) {

@@ -28,9 +28,9 @@ export function Sidebar({ artists, graph, selectedTagId }: SidebarProps) {
       <div className="placeholder">
         <h2>Pick a tag</h2>
         <p>
-          Tap any node in the mind map to see the artists that share that tag.
-          The size of each node tracks how many artists carry that tag (and,
-          when enabled, how much you actually play them).
+          Tap any node in the mind map to see the artists that share that tag. The size of each node
+          tracks how many artists carry that tag (and, when enabled, how much you actually play
+          them).
         </p>
       </div>
     );
@@ -40,8 +40,8 @@ export function Sidebar({ artists, graph, selectedTagId }: SidebarProps) {
     <div>
       <h2>{tag.label}</h2>
       <div className="sub">
-        <span className="cat-pill">{tag.category}</span>{" "}
-        {tag.artistCount} artists · {tag.playCount.toLocaleString()} plays
+        <span className="cat-pill">{tag.category}</span> {tag.artistCount} artists ·{" "}
+        {tag.playCount.toLocaleString()} plays
       </div>
       {tagArtists.length === 0 && <div className="placeholder">No artists.</div>}
       {tagArtists.map((a) => (
@@ -74,7 +74,9 @@ function ArtistRow({ artist }: { artist: EnrichedArtist }) {
       setPlaying(false);
     } else {
       a.src = `/media/stream/${encodeURIComponent(firstAlbumId)}`;
-      a.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+      a.play()
+        .then(() => setPlaying(true))
+        .catch(() => setPlaying(false));
     }
   }
 
@@ -91,7 +93,11 @@ function ArtistRow({ artist }: { artist: EnrichedArtist }) {
       )}
       <div>
         <div className="name">
-          {artist.starred && <span className="star" title="Starred">★ </span>}
+          {artist.starred && (
+            <span className="star" title="Starred">
+              ★{" "}
+            </span>
+          )}
           {artist.name}
         </div>
         <div className="meta">

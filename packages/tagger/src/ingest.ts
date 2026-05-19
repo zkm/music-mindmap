@@ -85,16 +85,12 @@ function albumFromRaw(a: RawAlbum): CachedAlbum {
   };
 }
 
-async function fetchArtistOnce(
-  client: SubsonicClient,
-  ref: RawArtistRef,
-): Promise<CachedArtist> {
+async function fetchArtistOnce(client: SubsonicClient, ref: RawArtistRef): Promise<CachedArtist> {
   const [detail, info] = await Promise.all([
     client.getArtist(ref.id),
     client.getArtistInfo2(ref.id).catch(() => null),
   ]);
-  const rawAlbums = (detail.artist as unknown as { album?: RawAlbum[] })
-    .album ?? [];
+  const rawAlbums = (detail.artist as unknown as { album?: RawAlbum[] }).album ?? [];
   const albums = rawAlbums.map(albumFromRaw);
   const playCount = albums.reduce((s, a) => s + (a.playCount ?? 0), 0);
   const info2 = info?.artistInfo2;

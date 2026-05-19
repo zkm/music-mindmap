@@ -17,8 +17,7 @@ export function clientFromEnv(env: NodeJS.ProcessEnv = process.env): {
   const password = env.NAVIDROME_PASSWORD;
   if (!url || !user || !password) {
     return {
-      error:
-        "Missing NAVIDROME_URL / NAVIDROME_USER / NAVIDROME_PASSWORD in environment",
+      error: "Missing NAVIDROME_URL / NAVIDROME_USER / NAVIDROME_PASSWORD in environment",
     };
   }
   return {

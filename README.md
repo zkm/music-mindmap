@@ -52,16 +52,16 @@ MB_USER_AGENT=music-mindmap/0.1 (you@example.com)
 
 ## Day-to-day commands
 
-| Command | What it does |
-| --- | --- |
-| `yarn ping` | Connectivity check against Navidrome — should print artist count |
-| `yarn ingest` | Pulls all artists+albums, normalizes tags, writes `data/{graph,artists,unmapped-tags}.json`. Uses on-disk cache; safe to re-run. |
-| `yarn ingest:refresh` | Same, but ignores cache (call after Navidrome changes) |
-| `yarn dev` | Runs `@mm/server` and `@mm/web` together — open <http://localhost:5175> |
-| `yarn build` | Builds the web bundle into `apps/web/dist` |
-| `yarn start` | Serves the built bundle from Fastify on `PORT` (default 5173) |
-| `yarn typecheck` | All workspaces |
-| `yarn test` | Vitest across all workspaces |
+| Command               | What it does                                                                                                                     |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `yarn ping`           | Connectivity check against Navidrome — should print artist count                                                                 |
+| `yarn ingest`         | Pulls all artists+albums, normalizes tags, writes `data/{graph,artists,unmapped-tags}.json`. Uses on-disk cache; safe to re-run. |
+| `yarn ingest:refresh` | Same, but ignores cache (call after Navidrome changes)                                                                           |
+| `yarn dev`            | Runs `@mm/server` and `@mm/web` together — open <http://localhost:5175>                                                          |
+| `yarn build`          | Builds the web bundle into `apps/web/dist`                                                                                       |
+| `yarn start`          | Serves the built bundle from Fastify on `PORT` (default 5173)                                                                    |
+| `yarn typecheck`      | All workspaces                                                                                                                   |
+| `yarn test`           | Vitest across all workspaces                                                                                                     |
 
 ## How the mind map is built
 
