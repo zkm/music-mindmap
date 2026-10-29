@@ -1,5 +1,18 @@
 # Music Mind Map
 
+[![CI](https://github.com/zkm/music-mindmap/actions/workflows/ci.yml/badge.svg)](https://github.com/zkm/music-mindmap/actions/workflows/ci.yml)
+[![Deploy to GitHub Pages](https://github.com/zkm/music-mindmap/actions/workflows/deploy.yml/badge.svg)](https://github.com/zkm/music-mindmap/actions/workflows/deploy.yml)
+[![live demo](https://img.shields.io/website?url=https%3A%2F%2Fzkm.github.io%2Fmusic-mindmap%2F&label=live%20demo)](https://zkm.github.io/music-mindmap/)
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-149ECA?logo=react&logoColor=white)
+![Cytoscape.js graph](https://img.shields.io/badge/Cytoscape.js-graph-F7DF1E)
+![Fastify](https://img.shields.io/badge/Fastify-000000?logo=fastify&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white)
+![Navidrome / Subsonic API](https://img.shields.io/badge/Navidrome-Subsonic%20API-0084FF)
+![Tags from Anthropic, OpenAI or Ollama](https://img.shields.io/badge/tags-Anthropic%20%C2%B7%20OpenAI%20%C2%B7%20Ollama-6E6E6E)
+![Yarn 4 workspaces](https://img.shields.io/badge/Yarn-4%20workspaces-2C8EBB?logo=yarn&logoColor=white)
+
 A mind-map view of a Navidrome library: artists are clustered by AI-derived
 tags (genre / subgenre / mood / era / region), and the graph is sized by
 either tag popularity or your own play counts.
